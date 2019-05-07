@@ -8,29 +8,25 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Random;
 
-
 public class Server {
     //static server port on which it will listen
-    private static int port = 8080;
+    private static int PORT = 8080;
     //static ServerSocket variable
     private static ServerSocket server;
     
     public static void main(String args[]) throws ClassNotFoundException {
-        //create the socket server object
-        
-        //keep listens indefinitely until receives 'exit' call or program terminates
         int i =0;
         Thread thread = null;
         try {
-            server = new ServerSocket(port);
-
+            //Create ServerSocket
+            server = new ServerSocket(PORT);
             while(true){
                 System.out.println("Waiting for the client request");
                 Socket socket = server.accept();
                 ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
-                String message = (String) ois.readObject();
-                System.out.println("Message Received: " + message);
+               
                 Random rand = new Random();
+                //Generate Thread and port
                 int newPort = rand.nextInt(9000)+1000;
                 MultiThreadRespond mr = new MultiThreadRespond(newPort);
                 thread = new Thread(multiThreadRespond);
