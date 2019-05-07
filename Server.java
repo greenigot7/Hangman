@@ -33,7 +33,7 @@ public class Server {
                 Random rand = new Random();
                 int newPort = rand.nextInt(9000)+1000;
                 MultiThreadRespond mr = new MultiThreadRespond(newPort);
-                thread = new Thread(mr);
+                thread = new Thread(multiThreadRespond);
                 thread.start();
                 ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
                 oos.writeObject(""+newPort);
