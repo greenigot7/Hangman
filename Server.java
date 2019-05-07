@@ -1,4 +1,4 @@
-package Server;
+//package Server;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -8,16 +8,10 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Random;
 
-/**
- * This class implements java Socket server
- * @author pankaj
- *
- */
+
 public class Server {
-    
-    //static ServerSocket variable
+    //static server port on which it will listen
     private static ServerSocket server;
-    //socket server port on which it will listen
     private static int port = 9876;
     
     public static void main(String args[]) throws ClassNotFoundException {
