@@ -15,7 +15,7 @@ public class Clientgame {
 	"aquaman", "it", "twilight", "shazam", "thor", "maleficent", "cinderella", "alien", "enchanted", "jumanji", "godzilla", "transformer", "rampage",
 	"antman" , "deadpool", "bumblebee"};
 	private static String word = words[(int) (Math.random() * words.length)];
-	private static String asterisk = new String(new char[word.length()]).replace("\0", "*");
+	private static String asterisk = new String(new char[word.length()]).replace("\0", "-");
 	private static int count = 0;
 	private static int score = 0;
 	private static int turn = 0;
@@ -34,7 +34,7 @@ public class Clientgame {
 		while (p.equals("y"))
 		{	turn++;
 			word = words[(int) (Math.random() * words.length)];
-		 	asterisk = new String(new char[word.length()]).replace("\0", "*");
+		 	asterisk = new String(new char[word.length()]).replace("\0", "-");
 			count = 0;
 			while (count < 7 ) 
 			{
@@ -60,10 +60,10 @@ public class Clientgame {
 		for (int i = 0; i < word.length(); i++) {
 			if (word.charAt(i) == guess.charAt(0)) {
 				newasterisk += guess.charAt(0);
-			} else if (asterisk.charAt(i) != '*') {
+			} else if (asterisk.charAt(i) != '-') {
 				newasterisk += word.charAt(i);
 			} else {
-				newasterisk += "*";
+				newasterisk += "-";
 			}
 		}
 
