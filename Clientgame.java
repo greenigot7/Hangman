@@ -17,7 +17,7 @@ public class Clientgame {
 	private static String word = words[(int) (Math.random() * words.length)];
 	private static String asterisk = new String(new char[word.length()]).replace("\0", "*");
 	private static int count = 0;
-	String p = "";
+	
 
 	public static void hangman() 
 	{
@@ -25,9 +25,13 @@ public class Clientgame {
 		Scanner sc = new Scanner(System.in);
 		Scanner se = new Scanner(System.in);
 		String p = se.nextLine();
+		if(p.equals("n")){
+			System.out.println("Bye Bye Hangman !!!");
+			System.exit(0);
+		}
 
 		while (p.equals("y"))
-		{	
+		{	word = words[(int) (Math.random() * words.length)];
 			count = 0;
 			while (count < 7 ) 
 			{
@@ -39,6 +43,11 @@ public class Clientgame {
 			//sc.close();
 			System.out.print("Do you want to play Hangman?(y/n): ");
 			p = se.nextLine();
+		 	if(p.equals("n")){
+				System.out.println("Your score is "+score+"/"+turn);
+				System.out.println("Bye Bye Hangman !!!");
+				System.exit(0);
+			}
 		} 
 	}
 
