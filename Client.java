@@ -24,14 +24,17 @@ public class Client extends Clientgame{
         
             socket = new Socket("127.0.0.1", port);
             oos = new ObjectOutputStream(socket.getOutputStream());
-            System.out.println("Sending request to Socket Server");
+            //System.out.println("Sending request to Socket Server");
            
             
             ois = new ObjectInputStream(socket.getInputStream());
             String message = (String) ois.readObject();
             port = Integer.parseInt(message);
-            
-            System.out.println("Message: " + message);
+            //System.out.println("Message: " + message);
+        
+            hangman();
+            hangmanImage();
+        
             //close resources
             ois.close();
             oos.close();
