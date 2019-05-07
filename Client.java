@@ -20,18 +20,17 @@ public class Client extends Clientgame{
         Socket socket = null;
         ObjectOutputStream oos = null;
         ObjectInputStream ois = null;
-        int port = 9876;
-        for(int i=0; i<5;i++){
+        int port = 8080;
+        
             socket = new Socket("127.0.0.1", port);
             oos = new ObjectOutputStream(socket.getOutputStream());
             System.out.println("Sending request to Socket Server");
-            if(i==4)oos.writeObject("exit");
-            else oos.writeObject(""+i);
+           
+            
             ois = new ObjectInputStream(socket.getInputStream());
             String message = (String) ois.readObject();
-            if(i==0){
-                port = Integer.parseInt(message);
-            }
+            port = Integer.parseInt(message);
+            
             System.out.println("Message: " + message);
             //close resources
             ois.close();
